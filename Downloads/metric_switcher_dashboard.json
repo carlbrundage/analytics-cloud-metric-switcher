@@ -1,0 +1,299 @@
+{
+    "label": "Metric Switcher",
+    "state": {
+        "dataSourceLinks": [],
+        "gridLayouts": [
+            {
+                "name": "Default",
+                "numColumns": 12,
+                "pages": [
+                    {
+                        "widgets": [
+                            {
+                                "colspan": 12,
+                                "column": 0,
+                                "name": "chart_2",
+                                "row": 1,
+                                "rowspan": 9,
+                                "widgetStyle": {
+                                    "backgroundColor": "#FFFFFF",
+                                    "borderColor": "#E6ECF2",
+                                    "borderEdges": [],
+                                    "borderRadius": 0,
+                                    "borderWidth": 1
+                                }
+                            },
+                            {
+                                "colspan": 4,
+                                "column": 0,
+                                "name": "pillbox_1",
+                                "row": 0,
+                                "rowspan": 1,
+                                "widgetStyle": {
+                                    "borderEdges": []
+                                }
+                            },
+                            {
+                                "row": 10,
+                                "column": 0,
+                                "rowspan": 8,
+                                "colspan": 12,
+                                "name": "table_1",
+                                "widgetStyle": {}
+                            }
+                        ]
+                    }
+                ],
+                "rowHeight": "normal",
+                "selectors": [],
+                "style": {
+                    "alignmentX": "left",
+                    "alignmentY": "top",
+                    "backgroundColor": "#F2F6FA",
+                    "cellSpacingX": 8,
+                    "cellSpacingY": 8,
+                    "fit": "original",
+                    "gutterColor": "#C5D3E0"
+                },
+                "version": 1
+            }
+        ],
+        "layouts": [],
+        "steps": {
+            "Switcher": {
+                "datasets": [],
+                "dimensions": [],
+                "groups": [],
+                "isFacet": false,
+                "isGlobal": false,
+                "label": "Standard Deviation",
+                "numbers": [],
+                "selectMode": "single",
+                "start": {
+                    "display": [
+                        "Sum"
+                    ]
+                },
+                "strings": [],
+                "type": "staticflex",
+                "useGlobal": false,
+                "values": [
+                    {
+                        "display": "Sum",
+                        "value": [
+                            "stddev",
+                            "Amount",
+                            "A",
+                            {
+                                "display": "Sum Amount",
+                                "format": "currencydollars"
+                            }
+                        ]
+                    },
+                    {
+                        "display": "Average",
+                        "value": [
+                            "stddev",
+                            "Amount",
+                            "B",
+                            {
+                                "display": "Avg Amount",
+                                "format": "currencydollars"
+                            }
+                        ]
+                    },
+                    {
+                        "display": "Max",
+                        "value": [
+                            "stddev",
+                            "Amount",
+                            "C",
+                            {
+                                "display": "Max Amount",
+                                "format": "currencydollars"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Industry_Amount": {
+                "datasets": [
+                    {
+                        "id": "0Fb410000004Ym4CAE",
+                        "label": "Opportunities",
+                        "name": "opportunity",
+                        "url": "/services/data/v39.0/wave/datasets/0Fb410000004Ym4CAE"
+                    }
+                ],
+                "isFacet": true,
+                "isGlobal": false,
+                "query": {
+                    "measures": [
+                        "{{cell(Switcher.selection, 0, \"value\").asObject()}}"
+                    ],
+                    "columns": [
+                        {
+                            "query": {
+                                "measures": [
+                                    [
+                                        "sum",
+                                        "Amount"
+                                    ]
+                                ],
+                                "groups": [
+                                    "Account.Industry"
+                                ]
+                            },
+                            "format": "currencydollars",
+                            "header": "Sum Amount"
+                        },
+                        {
+                            "query": {
+                                "measures": [
+                                    [
+                                        "avg",
+                                        "Amount"
+                                    ]
+                                ],
+                                "groups": [
+                                    "Account.Industry"
+                                ]
+                            },
+                            "format": "currencydollars",
+                            "header": "Avg Amount"
+                        },
+                        {
+                            "query": {
+                                "measures": [
+                                    [
+                                        "max",
+                                        "Amount"
+                                    ]
+                                ],
+                                "groups": [
+                                    "Account.Industry"
+                                ]
+                            },
+                            "format": "currencydollars",
+                            "header": "Max Amount"
+                        }
+                    ],
+                    "groups": [
+                        "Account.Industry"
+                    ]
+                },
+                "selectMode": "single",
+                "type": "aggregateflex",
+                "useGlobal": true,
+                "visualizationParameters": {
+                    "visualizationType": "comparisontable",
+                    "options": {}
+                }
+            }
+        },
+        "widgetStyle": {
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#E6ECF2",
+            "borderEdges": [],
+            "borderRadius": 0,
+            "borderWidth": 1
+        },
+        "widgets": {
+            "pillbox_1": {
+                "parameters": {
+                    "compact": false,
+                    "exploreLink": false,
+                    "step": "Switcher"
+                },
+                "type": "pillbox"
+            },
+            "chart_2": {
+                "parameters": {
+                    "autoFitMode": "fit",
+                    "showValues": true,
+                    "legend": {
+                        "showHeader": true,
+                        "show": true,
+                        "customSize": "auto",
+                        "position": "bottom-center",
+                        "inside": false
+                    },
+                    "axisMode": "sync",
+                    "visualizationType": "vbar",
+                    "exploreLink": true,
+                    "title": {
+                        "label": "",
+                        "align": "center",
+                        "subtitleLabel": ""
+                    },
+                    "trellis": {
+                        "enable": false,
+                        "type": "x",
+                        "chartsPerLine": 4
+                    },
+                    "measureAxis2": {
+                        "sqrtScale": false,
+                        "showTitle": true,
+                        "showAxis": true,
+                        "title": "",
+                        "referenceLine": null
+                    },
+                    "measureAxis1": {
+                        "sqrtScale": false,
+                        "showTitle": false,
+                        "showAxis": true,
+                        "title": "",
+                        "referenceLine": null
+                    },
+                    "theme": "wave",
+                    "step": "Industry_Amount",
+                    "dimensionAxis": {
+                        "showTitle": false,
+                        "customSize": "auto",
+                        "showAxis": true,
+                        "title": ""
+                    },
+                    "binValues": false,
+                    "bins": {
+                        "breakpoints": {
+                            "low": 0,
+                            "high": 100
+                        },
+                        "bands": {
+                            "low": {
+                                "label": "",
+                                "color": "#B22222"
+                            },
+                            "medium": {
+                                "label": "",
+                                "color": "#ffa500"
+                            },
+                            "high": {
+                                "label": "",
+                                "color": "#008000"
+                            }
+                        }
+                    }
+                },
+                "type": "chart"
+            },
+            "table_1": {
+                "type": "table",
+                "parameters": {
+                    "step": "Industry_Amount",
+                    "customBulkActions": [],
+                    "exploreLink": true,
+                    "pivoted": false
+                }
+            }
+        }
+    },
+    "datasets": [
+        {
+            "id": "0Fb410000004Ym4CAE",
+            "label": "Opportunities",
+            "name": "opportunity",
+            "url": "/services/data/v39.0/wave/datasets/0Fb410000004Ym4CAE"
+        }
+    ]
+}
